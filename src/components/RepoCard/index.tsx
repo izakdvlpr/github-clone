@@ -1,7 +1,63 @@
+import Link from 'next/link';
 import React from 'react';
 
-// import { Container } from './styles';
+import {
+  Container,
+  TopSide,
+  RepoIcon,
+  BotSide,
+  StarIcon,
+  ForkIcon,
+} from './styles';
 
-const RepoCard: React.FC = () => <div />;
+interface Props {
+  username: string;
+  reponame: string;
+  description?: string;
+  language?: string;
+  stars: number;
+  forks: number;
+}
+
+const RepoCard: React.FC<Props> = ({
+  username,
+  reponame,
+  description,
+  language,
+  stars,
+  forks,
+}) => {
+  const languageClass = language ? language.toLowerCase() : 'other';
+
+  return (
+    <Container>
+      <TopSide>
+        <header>
+          <RepoIcon />
+          <Link href={`/${username}/${reponame}`}>{reponame}</Link>
+        </header>
+
+        <p>{description}</p>
+      </TopSide>
+
+      <BotSide>
+        <ul>
+          <li>
+            <div className={`language ${languageClass}`} />
+            <span>{language}</span>
+          </li>
+          <li>
+            <StarIcon />
+            <span>{stars}</span>
+          </li>
+          <li>
+            <ForkIcon />
+            <span>{forks}</span>
+          </li>
+        </ul>
+      </BotSide>
+    </Container>
+  );
+};
 
 export default RepoCard;

@@ -30,3 +30,26 @@ export const RightSide = styled.div`
     width: 75%;
   }
 `;
+
+export const Repos = styled.div`
+  margin-top: var(--verticalPadding);
+  
+  > h2 {
+    font-size: 16px;
+    font-weight: normal;
+  }
+  
+  > div {
+    margin-top: 8px;
+    
+    display: grid;
+    grid-gap: 16px;
+    
+    grid-template-columns: 1fr;
+    
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows:  minmax(min-content, max-content);
+    }
+  }
+`;
