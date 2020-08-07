@@ -1,3 +1,3 @@
-import Profile from './[username]';
+import User from './[user]';
 
-export default Profile;
+export default User;
