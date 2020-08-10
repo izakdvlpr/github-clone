@@ -1,3 +1,5 @@
+import 'react-calendar-heatmap/dist/styles.css';
+
 import { AppProps } from 'next/app';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';

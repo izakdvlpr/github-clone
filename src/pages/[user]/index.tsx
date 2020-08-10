@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ProfileData from '@components/ProfileData';
+import RandomCalendar from '@components/RandomCalendar';
 import RepoCard from '@components/RepoCard';
 import Layout from '@layout';
 import {
@@ -9,7 +10,10 @@ import {
   LeftSide,
   RightSide,
   Repos,
+  CalendarHeading,
 } from '@styles/pages/user';
+
+// 1:16:46
 
 const UserPage: React.FC = () => (
   <Layout>
@@ -28,6 +32,7 @@ const UserPage: React.FC = () => (
             blog="https://zevdvlpr.ml"
           />
         </LeftSide>
+
         <RightSide>
           <Repos>
             <h2>Random repos</h2>
@@ -46,6 +51,12 @@ const UserPage: React.FC = () => (
               ))}
             </div>
           </Repos>
+
+          <CalendarHeading>
+            Random calendar (do not represent actual data)
+          </CalendarHeading>
+
+          <RandomCalendar />
         </RightSide>
       </Main>
     </Container>
