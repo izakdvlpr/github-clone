@@ -20,14 +20,23 @@ export const SearchForm = styled.form`
   width: 100%;
 
   input {
-    background: var(--search);
+    background-color: var(--search);
+    color: var(--primary);
     outline: 0;
     border-radius: 6px;
     padding: 7px 12px;
     width: 100%;
+    
+    &::placeholder {
+      color: var(--search-placeholder)
+    }
 
     &:focus {
       width: 318px;
+      
+      color: var(--black);
+      
+      background-color: var(--primary);
     }
 
     transition: width 0.2s ease-out, color 0.2s ease-out;

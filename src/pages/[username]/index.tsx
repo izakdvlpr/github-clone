@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
-import GithubAPI from '@api/Github';
 import ProfileData from '@components/ProfileData';
 import RandomCalendar from '@components/RandomCalendar';
 import RepoCard from '@components/RepoCard';
@@ -25,15 +24,15 @@ interface Data {
 }
 
 const UserPage: React.FC = () => {
-  const { query } = useRouter();
-  const { username = 'zevdvlpr' } = query;
+  const router = useRouter();
+  const { username = 'zevdvlpr' } = router.query;
 
   const [data, setData] = useState<Data>();
 
   useEffect(() => {
     Promise.all([
-      GithubAPI.getUser(username),
-      GithubAPI.getRepositories(username),
+      fetch(`https://api.github.com/users/${username}`),
+      fetch(`https://api.github.com/users/${username}/repos`),
     ]).then(async responses => {
       const [userResponse, repositoriesResponse] = responses;
 
@@ -43,8 +42,8 @@ const UserPage: React.FC = () => {
         return;
       }
 
-      const user = userResponse.data;
-      const repositories = repositoriesResponse.data;
+      const user = await userResponse.json();
+      const repositories = await repositoriesResponse.json();
 
       const shuffledRepositories = repositories.sort(() => 0.5 - Math.random());
       const slicedRepositories = shuffledRepositories.slice(0, 6);
