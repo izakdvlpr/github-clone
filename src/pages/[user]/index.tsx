@@ -11,56 +11,82 @@ import {
   RightSide,
   Repos,
   CalendarHeading,
+  RepoIcon,
+  Tab,
 } from '@styles/pages/user';
 
-// 1:16:46
+const UserPage: React.FC = () => {
+  const TabContent = () => (
+    <div className="content">
+      <RepoIcon />
+      <span className="label">Repositories</span>
+      <span className="number">26</span>
+    </div>
+  );
 
-const UserPage: React.FC = () => (
-  <Layout>
-    <Container>
-      <Main>
-        <LeftSide>
-          <ProfileData
-            username="zevdvlpr"
-            name="Zev"
-            avatarUrl="https://avatars1.githubusercontent.com/u/44278486?s=460&u=584d70d961664888b8ef3ab342b58083f341925d&v=4"
-            followers={887}
-            following={7}
-            company="Rocketseat"
-            location="Minas Gerais, Brazil"
-            email="zevdvlpr@gmail.com"
-            blog="https://zevdvlpr.ml"
-          />
-        </LeftSide>
+  return (
+    <Layout>
+      <Container>
+        <Tab className="desktop">
+          <div className="wrapper">
+            <span className="offset" />
 
-        <RightSide>
-          <Repos>
-            <h2>Random repos</h2>
+            <TabContent />
+          </div>
 
-            <div>
-              {[1, 2, 3, 4, 5, 6].map(n => (
-                <RepoCard
-                  key={n}
-                  username="zevdvlpr"
-                  reponame="twitter-clone"
-                  description="Clone da interface do Twitter para fins de estudo."
-                  language={n % 3 === 0 ? 'JavaScript' : 'TypeScript'}
-                  stars={8}
-                  forks={4}
-                />
-              ))}
-            </div>
-          </Repos>
+          <span className="line" />
+        </Tab>
 
-          <CalendarHeading>
-            Random calendar (do not represent actual data)
-          </CalendarHeading>
+        <Main>
+          <LeftSide>
+            <ProfileData
+              username="zevdvlpr"
+              name="Zev"
+              avatarUrl="https://avatars1.githubusercontent.com/u/44278486?s=460&u=584d70d961664888b8ef3ab342b58083f341925d&v=4"
+              followers={887}
+              following={7}
+              company="Rocketseat"
+              location="Minas Gerais, Brazil"
+              email="zevdvlpr@gmail.com"
+              blog="https://zevdvlpr.ml"
+            />
+          </LeftSide>
 
-          <RandomCalendar />
-        </RightSide>
-      </Main>
-    </Container>
-  </Layout>
-);
+          <RightSide>
+            <Tab className="mobile">
+              <TabContent />
+
+              <span className="line" />
+            </Tab>
+
+            <Repos>
+              <h2>Random repos</h2>
+
+              <div>
+                {[1, 2, 3, 4, 5, 6].map(n => (
+                  <RepoCard
+                    key={n}
+                    username="zevdvlpr"
+                    reponame="twitter-clone"
+                    description="Clone da interface do Twitter para fins de estudo."
+                    language={n % 3 === 0 ? 'JavaScript' : 'TypeScript'}
+                    stars={8}
+                    forks={4}
+                  />
+                ))}
+              </div>
+            </Repos>
+
+            <CalendarHeading>
+              Random calendar (do not represent actual data)
+            </CalendarHeading>
+
+            <RandomCalendar />
+          </RightSide>
+        </Main>
+      </Container>
+    </Layout>
+  );
+};
 
 export default UserPage;
