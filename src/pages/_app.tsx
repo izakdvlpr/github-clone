@@ -7,8 +7,7 @@ import { ThemeProvider } from 'styled-components';
 import Footer from '@components/Footer';
 import Header from '@components/Header';
 import { ThemeName, themes } from '@config/themes';
-
-import GlobalStyles from '../styles/global';
+import GlobalStyles from '@styles/global';
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [themeName, setThemeName] = useState<ThemeName>('light');

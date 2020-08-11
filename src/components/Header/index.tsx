@@ -15,15 +15,15 @@ const HeaderComponent: React.FC<Props> = ({ themeName, setThemeName }) => {
 
   const router = useRouter();
 
-  function handleSubmit(e: React.FormEvent) {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     router.push(`/${search.toLowerCase().trim()}`);
-  }
+  };
 
-  function toggleTheme() {
+  const toggleTheme = () => {
     setThemeName(themeName === 'light' ? 'dark' : 'light');
-  }
+  };
 
   return (
     <Container>

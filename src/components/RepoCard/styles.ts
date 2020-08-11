@@ -75,7 +75,7 @@ export const BotSide = styled.div`
     flex-shrink: 0;
     
     &.other {
-      background-color: var(--outher-language);
+      background-color: var(--border);
     }
     
     &.javascript {

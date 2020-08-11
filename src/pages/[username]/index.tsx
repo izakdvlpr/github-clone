@@ -88,15 +88,15 @@ const UserPage: React.FC = () => {
         <Main>
           <LeftSide>
             <ProfileData
-              username={data.user.login}
-              name={data.user.name}
-              avatarUrl={data.user.avatar_url}
-              followers={data.user.followers}
-              following={data.user.following}
-              company={data.user.company}
-              location={data.user.location}
-              email={data.user.email}
-              blog={data.user.blog}
+              username={data.user?.login}
+              name={data.user?.name}
+              avatarUrl={data.user?.avatar_url}
+              followers={data.user?.followers}
+              following={data.user?.following}
+              company={data.user?.company}
+              location={data.user?.location}
+              email={data.user?.email}
+              blog={data.user?.blog}
             />
           </LeftSide>
 
@@ -111,14 +111,14 @@ const UserPage: React.FC = () => {
               <h2>Random repos</h2>
 
               <div>
-                {data.repositories.map(item => (
+                {data.repositories?.map(item => (
                   <RepoCard
                     key={item.name}
                     username={item.owner.login}
                     reponame={item.name}
                     description={item.description}
                     language={item.language}
-                    stars={item.starsgazers_count}
+                    stars={item.stargazers_count}
                     forks={item.forks}
                   />
                 ))}

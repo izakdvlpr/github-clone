@@ -44,7 +44,7 @@ const RepoCardComponent: React.FC<Props> = ({
         <ul>
           <li>
             <div className={`language ${languageClass}`} />
-            <span>{language}</span>
+            <span>{language ? language.toLowerCase() : 'none'}</span>
           </li>
           <li>
             <StarIcon />

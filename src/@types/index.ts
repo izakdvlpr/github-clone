@@ -16,7 +16,7 @@ export interface Repository {
   owner: {
     login: string;
   };
-  starsgazers_count: number;
+  stargazers_count: number;
   forks: number;
   html_url: string;
   language?: string;
