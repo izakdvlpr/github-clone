@@ -1,9 +1,16 @@
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 
+import { ThemeName } from '@config/themes';
+
 import { Container, GithubLogo, SearchForm } from './styles';
 
-const HeaderComponent: React.FC = () => {
+interface Props {
+  themeName: ThemeName;
+  setThemeName: (newName: ThemeName) => void;
+}
+
+const HeaderComponent: React.FC<Props> = ({ themeName, setThemeName }) => {
   const [search, setSearch] = useState('');
 
   const router = useRouter();
@@ -14,9 +21,13 @@ const HeaderComponent: React.FC = () => {
     router.push(`/${search.toLowerCase().trim()}`);
   }
 
+  function toggleTheme() {
+    setThemeName(themeName === 'light' ? 'dark' : 'light');
+  }
+
   return (
     <Container>
-      <GithubLogo />
+      <GithubLogo onClick={toggleTheme} />
       <SearchForm onSubmit={handleSubmit}>
         <input
           type="text"
