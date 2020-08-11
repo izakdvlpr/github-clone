@@ -1,5 +1,7 @@
-import React from 'react';
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
 
+import GithubAPI from '@api/Github';
 import ProfileData from '@components/ProfileData';
 import RandomCalendar from '@components/RandomCalendar';
 import RepoCard from '@components/RepoCard';
@@ -14,13 +16,60 @@ import {
   RepoIcon,
   Tab,
 } from '@styles/pages/user';
+import { User, Repository } from '@types';
+
+interface Data {
+  user?: User;
+  repositories?: Repository[];
+  error?: string;
+}
 
 const UserPage: React.FC = () => {
+  const { query } = useRouter();
+  const { username = 'zevdvlpr' } = query;
+
+  const [data, setData] = useState<Data>();
+
+  useEffect(() => {
+    Promise.all([
+      GithubAPI.getUser(username),
+      GithubAPI.getRepositories(username),
+    ]).then(async responses => {
+      const [userResponse, repositoriesResponse] = responses;
+
+      if (userResponse.status === 404) {
+        setData({ error: 'User not found!' });
+
+        return;
+      }
+
+      const user = userResponse.data;
+      const repositories = repositoriesResponse.data;
+
+      const shuffledRepositories = repositories.sort(() => 0.5 - Math.random());
+      const slicedRepositories = shuffledRepositories.slice(0, 6);
+
+      setData({
+        user,
+        repositories: slicedRepositories,
+      });
+    });
+  }, [username]);
+
+  if (data?.error) {
+    return <h1>{data.error}</h1>;
+  }
+
+  if (!data?.user || !data?.repositories) {
+    return <h1>Loading...</h1>;
+  }
+
   const TabContent = () => (
     <div className="content">
       <RepoIcon />
+
       <span className="label">Repositories</span>
-      <span className="number">26</span>
+      <span className="number">{data.user?.public_repos}</span>
     </div>
   );
 
@@ -40,15 +89,15 @@ const UserPage: React.FC = () => {
         <Main>
           <LeftSide>
             <ProfileData
-              username="zevdvlpr"
-              name="Zev"
-              avatarUrl="https://avatars1.githubusercontent.com/u/44278486?s=460&u=584d70d961664888b8ef3ab342b58083f341925d&v=4"
-              followers={887}
-              following={7}
-              company="Rocketseat"
-              location="Minas Gerais, Brazil"
-              email="zevdvlpr@gmail.com"
-              blog="https://zevdvlpr.ml"
+              username={data.user.login}
+              name={data.user.name}
+              avatarUrl={data.user.avatar_url}
+              followers={data.user.followers}
+              following={data.user.following}
+              company={data.user.company}
+              location={data.user.location}
+              email={data.user.email}
+              blog={data.user.blog}
             />
           </LeftSide>
 
@@ -63,15 +112,15 @@ const UserPage: React.FC = () => {
               <h2>Random repos</h2>
 
               <div>
-                {[1, 2, 3, 4, 5, 6].map(n => (
+                {data.repositories.map(item => (
                   <RepoCard
-                    key={n}
-                    username="zevdvlpr"
-                    reponame="twitter-clone"
-                    description="Clone da interface do Twitter para fins de estudo."
-                    language={n % 3 === 0 ? 'JavaScript' : 'TypeScript'}
-                    stars={8}
-                    forks={4}
+                    key={item.name}
+                    username={item.owner.login}
+                    reponame={item.name}
+                    description={item.description}
+                    language={item.language}
+                    stars={item.starsgazers_count}
+                    forks={item.forks}
                   />
                 ))}
               </div>

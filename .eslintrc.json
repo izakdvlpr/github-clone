@@ -75,9 +75,9 @@
       {
         "newlinesBetween": "always",
         "groups": [
-          "/^(react|next|styled-components)/",
+          "/^(react|next|styled-components|axios)/",
           "module",
-          "/^@/components/",          
+          "/^@/components/",
           ["parent", "sibling", "index"]
         ],
         "alphabetize": { "order": "asc", "ignoreCase": true }

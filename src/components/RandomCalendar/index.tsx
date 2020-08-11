@@ -1,3 +1,5 @@
+// @ts-ignore
+
 import React from 'react';
 import HeatMap from 'react-calendar-heatmap';
 
@@ -20,7 +22,6 @@ const RandomCalendar: React.FC = () => {
         <HeatMap
           startDate={startDate}
           endDate={endDate}
-          // eslint-disable-next-line no-use-before-define
           values={generateHeatmapValues(startDate, endDate)}
           gutterSize={3.5}
           classForValue={(item: HeatmapValue) => {
