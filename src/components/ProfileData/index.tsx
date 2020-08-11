@@ -25,7 +25,7 @@ interface Props {
   blog?: string;
 }
 
-const ProfileData: React.FC<Props> = ({
+const ProfileDataComponent: React.FC<Props> = ({
   username,
   name,
   avatarUrl,
@@ -87,4 +87,4 @@ const ProfileData: React.FC<Props> = ({
     </Column>
   </Container>
 );
-export default ProfileData;
+export default ProfileDataComponent;

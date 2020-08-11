@@ -12,7 +12,7 @@ type HeatmapValue = {
   count: number;
 };
 
-const RandomCalendar: React.FC = () => {
+const RandomCalendarComponent: React.FC = () => {
   const startDate = subYears(new Date(), 1);
   const endDate = new Date();
 
@@ -59,4 +59,4 @@ const generateHeatmapValues = (startDate: Date, endDate: Date) => {
   return values;
 };
 
-export default RandomCalendar;
+export default RandomCalendarComponent;

@@ -19,7 +19,7 @@ interface Props {
   forks: number;
 }
 
-const RepoCard: React.FC<Props> = ({
+const RepoCardComponent: React.FC<Props> = ({
   username,
   reponame,
   description,
@@ -60,4 +60,4 @@ const RepoCard: React.FC<Props> = ({
   );
 };
 
-export default RepoCard;
+export default RepoCardComponent;
