@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
+import ReactLoading from 'react-loading';
 
 import Layout from '@layout';
 import {
   Container,
+  LoadingContent,
   Breadcrumb,
   RepoIcon,
   Stats,
@@ -42,7 +44,20 @@ const RepositoryPage: React.FC = () => {
   }
 
   if (!data?.repository) {
-    return <h1>Loading...</h1>;
+    return (
+      <Layout>
+        <Container>
+          <LoadingContent>
+            <ReactLoading
+              type="bubbles"
+              color="#e1e4e8"
+              height="5%"
+              width="5%"
+            />
+          </LoadingContent>
+        </Container>
+      </Layout>
+    );
   }
 
   return (

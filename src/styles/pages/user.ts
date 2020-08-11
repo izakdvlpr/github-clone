@@ -21,6 +21,12 @@ export const Main = styled.div`
   }
 `;
 
+export const LoadingContent = styled.div`      
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const LeftSide = styled.div`
   padding: 0 var(--horizontalPadding);
 

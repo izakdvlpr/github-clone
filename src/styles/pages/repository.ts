@@ -13,6 +13,12 @@ export const Container = styled.div`
   }
 `;
 
+export const LoadingContent = styled.div`      
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const Breadcrumb = styled.div`
   margin-bottom: 16px;
 
@@ -27,8 +33,8 @@ export const Breadcrumb = styled.div`
     color: var(--link);
     text-decoration: none;
 
-    &::hover,
-    &:focus {
+    &:focus,
+    &:hover {
       text-decoration: underline;
     }
 

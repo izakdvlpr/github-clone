@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
+import ReactLoading from 'react-loading';
 
 import ProfileData from '@components/ProfileData';
 import RandomCalendar from '@components/RandomCalendar';
@@ -8,6 +9,7 @@ import Layout from '@layout';
 import {
   Container,
   Main,
+  LoadingContent,
   LeftSide,
   RightSide,
   Repos,
@@ -60,7 +62,20 @@ const UserPage: React.FC = () => {
   }
 
   if (!data?.user || !data?.repositories) {
-    return <h1>Loading...</h1>;
+    return (
+      <Layout>
+        <Container>
+          <LoadingContent>
+            <ReactLoading
+              type="bubbles"
+              color="#e1e4e8"
+              height="5%"
+              width="5%"
+            />
+          </LoadingContent>
+        </Container>
+      </Layout>
+    );
   }
 
   const TabContent = () => (
