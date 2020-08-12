@@ -26,8 +26,8 @@ const layout: React.FC<Props> = ({ title, description, image, url }) => (
     <meta property="og:image" content={image} />
     <meta property="og:image:secure_url" content={image} />
 
-    <link rel="icon" href={image} />
-    <link rel="shortcut icon" href={image} />
+    <link rel="icon" href="/icon.png" />
+    <link rel="shortcut icon" href="/favicon.png" />
   </Head>
 );
 

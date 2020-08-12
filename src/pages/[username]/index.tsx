@@ -9,7 +9,7 @@ import Layout from '@layout';
 import {
   Container,
   Main,
-  LoadingContent,
+  AlertContent,
   LeftSide,
   RightSide,
   Repos,
@@ -58,21 +58,29 @@ const UserPage: React.FC = () => {
   }, [username]);
 
   if (data?.error) {
-    return <h1>{data.error}</h1>;
+    return (
+      <Layout title="Error!" description={data?.error} >
+        <Container>
+          <AlertContent>
+            <h1>{data?.error}</h1>
+          </AlertContent>
+        </Container>
+      </Layout>
+    );
   }
 
   if (!data?.user || !data?.repositories) {
     return (
-      <Layout>
+      <Layout title="Loading...">
         <Container>
-          <LoadingContent>
+          <AlertContent>
             <ReactLoading
               type="bubbles"
               color="#e1e4e8"
               height="5%"
               width="5%"
             />
-          </LoadingContent>
+          </AlertContent>
         </Container>
       </Layout>
     );
@@ -88,7 +96,12 @@ const UserPage: React.FC = () => {
   );
 
   return (
-    <Layout>
+    <Layout
+      title={`${username} (${data.user?.name})`}
+      description={data.user?.description}
+      image={data.user?.avatar_url}
+      url={data.user?.html_url}
+    >
       <Container>
         <Tab className="desktop">
           <div className="wrapper">

@@ -6,7 +6,7 @@ import ReactLoading from 'react-loading';
 import Layout from '@layout';
 import {
   Container,
-  LoadingContent,
+  AlertContent,
   Breadcrumb,
   RepoIcon,
   Stats,
@@ -40,28 +40,41 @@ const RepositoryPage: React.FC = () => {
   }, [repositoryname, username]);
 
   if (data?.error) {
-    return <h1>{data.error}</h1>;
+    return (
+      <Layout title="Error!" description={data?.error} >
+        <Container>
+          <AlertContent>
+            <h1>{data?.error}</h1>
+          </AlertContent>
+        </Container>
+      </Layout>
+    );
   }
 
   if (!data?.repository) {
     return (
-      <Layout>
+      <Layout title="Loading...">
         <Container>
-          <LoadingContent>
+          <AlertContent>
             <ReactLoading
               type="bubbles"
               color="#e1e4e8"
               height="5%"
               width="5%"
             />
-          </LoadingContent>
+          </AlertContent>
         </Container>
       </Layout>
     );
   }
 
   return (
-    <Layout>
+    <Layout
+      title={`${username}/${repositoryname}`}
+      description={data.repository?.description}
+      image="https://i.pinimg.com/originals/b1/5e/ed/b15eedbdafbbdbca3249e3942f4faf3b.png"
+      url={data.repository?.html_url}
+    >
       <Container>
         <Breadcrumb>
           <RepoIcon />

@@ -1,6 +1,8 @@
 export interface User {
   login: string;
+  html_url: string;
   name: string;
+  description: string;
   followers: number;
   following: number;
   public_repos: number;
