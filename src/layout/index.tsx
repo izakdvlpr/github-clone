@@ -10,10 +10,10 @@ export interface Props {
 }
 
 const Layout: React.FC<Props> = ({
-  title = '',
-  description = '',
-  image = '',
-  url = '',
+  title = 'Github Clone',
+  description = 'Clone da interface do Github para fins de estudo.',
+  image = 'https://i.pinimg.com/originals/b1/5e/ed/b15eedbdafbbdbca3249e3942f4faf3b.png',
+  url = 'https://github-clone-zevdvlpr.vercel.app',
   children,
 }) => (
   <>

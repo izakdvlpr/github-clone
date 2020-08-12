@@ -59,7 +59,7 @@ const UserPage: React.FC = () => {
 
   if (data?.error) {
     return (
-      <Layout title="Error!" description={data?.error} >
+      <Layout title="Error!">
         <Container>
           <AlertContent>
             <h1>{data?.error}</h1>
@@ -96,12 +96,7 @@ const UserPage: React.FC = () => {
   );
 
   return (
-    <Layout
-      title={`${username} (${data.user?.name})`}
-      description={data.user?.description}
-      image={data.user?.avatar_url}
-      url={data.user?.html_url}
-    >
+    <Layout title={`${username} (${data.user?.name})`}>
       <Container>
         <Tab className="desktop">
           <div className="wrapper">

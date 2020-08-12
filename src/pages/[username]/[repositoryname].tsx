@@ -41,7 +41,7 @@ const RepositoryPage: React.FC = () => {
 
   if (data?.error) {
     return (
-      <Layout title="Error!" description={data?.error} >
+      <Layout title="Error!">
         <Container>
           <AlertContent>
             <h1>{data?.error}</h1>
@@ -69,12 +69,7 @@ const RepositoryPage: React.FC = () => {
   }
 
   return (
-    <Layout
-      title={`${username}/${repositoryname}`}
-      description={data.repository?.description}
-      image="https://i.pinimg.com/originals/b1/5e/ed/b15eedbdafbbdbca3249e3942f4faf3b.png"
-      url={data.repository?.html_url}
-    >
+    <Layout title={`${username}/${repositoryname}`}>
       <Container>
         <Breadcrumb>
           <RepoIcon />
