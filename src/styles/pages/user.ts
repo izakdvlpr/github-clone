@@ -21,7 +21,7 @@ export const Main = styled.div`
   }
 `;
 
-export const AlertContent = styled.div`      
+export const AlertContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,40 +101,40 @@ export const Tab = styled.div`
       background: var(--ticker);
       padding: 2px 6px;
       border-radius: 24px;
-    }        
+    }
   }
-  
+
   .line {
     display: flex;
     width: 200vw;
     border-bottom: 1px solid var(--border);
     margin-left: -50vw;
   }
-  
+
   &.mobile {
     margin-top: var(--verticalPadding);
-    
+
     .content {
       margin: 0 auto;
     }
-    
+
     @media (min-width: 768px) {
       display: none;
     }
   }
-  
+
   &.desktop {
     display: none;
-    
+
     @media (min-width: 768px) {
       display: unset;
-      
+
       .wrapper {
         display: flex;
         margin: 0 auto;
         max-width: 1280px;
       }
-      
+
       .offset {
         width: 25%;
         margin-right: var(--horizontalPadding);

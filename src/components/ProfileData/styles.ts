@@ -44,7 +44,7 @@ export const Flex = styled.div`
 export const Avatar = styled.img`
   width: 16%;
   border-radius: 50%;
-  
+
   @media (min-width: 768px) {
     width: 100%;
     margin-top: -34px;
@@ -56,16 +56,16 @@ export const Row = styled.ul`
   align-items: center;
   flex-wrap: wrap;
   margin: 20px 0;
-  
+
   > li {
     display: flex;
     align-items: center;
-    
+
     > span {
       font-size: 14px;
       color: var(--gray);
     }
-    
+
     > * {
       margin-right: 5px;
     }

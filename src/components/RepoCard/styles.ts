@@ -53,13 +53,13 @@ export const RepoIcon = styled(RiBookMarkLine)`
 export const BotSide = styled.div`
   > ul {
     display: flex;
-    align-items: center;    
-    
+    align-items: center;
+
     > li {
       display: flex;
       align-items: center;
       margin-right: 16px;
-      
+
       > span {
         margin-left: 5px;
         font-size: 12px;
@@ -67,21 +67,21 @@ export const BotSide = styled.div`
       }
     }
   }
-  
+
   .language {
     width: 12px;
     height: 12px;
     border-radius: 50%;
     flex-shrink: 0;
-    
+
     &.other {
       background-color: var(--border);
     }
-    
+
     &.javascript {
       background-color: var(--javascript);
     }
-    
+
     &.typescript {
       background-color: var(--typescript);
     }
