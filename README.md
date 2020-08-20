@@ -10,13 +10,23 @@
     <a href="#arrow_forward-como-utilizar">Como utilizar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
     <a href="#recycle-como-contribuir">Como contribuir</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
     <a href="#customs-license">Licença</a>
-  </p>
-  <a href="https://github.com/zevdvlpr/github-clone/blob/master/LICENSE"><img src="https://img.shields.io/github/license/zevdvlpr/github-clone?color=0080ff&label=License&style=flat-square" alt="License"></a>  
-  <a href="https://github-clone-zevdvlpr.vercel.app"><img src="https://img.shields.io/badge/Deploy-View%20Site-0080ff?style=flat-square" alt="Deploy"></a>
+  </p>  
+  <img src="https://img.shields.io/github/repo-size/zevdvlpr/github-clone?color=000000&style=flat-square" alt="GitHub repo size">
+  <a href="https://github.com/zevdvlpr/github-clone/commits/master">
+    <img src="https://img.shields.io/github/last-commit/zevdvlpr/github-clone?color=000000&style=flat-square" alt="GitHub last commit">
   </a>
+  <a href="https://github.com/zevdvlpr/github-clone/tree/master/LICENSE">
+    <img src="https://img.shields.io/github/license/zevdvlpr/github-clone?color=000000&label=license&style=flat-square" alt="GitHub License">
+  </a>  
+  <a href="https://github.com/zevdvlpr/github-clone/stargazers">
+    <img src="https://img.shields.io/github/stars/zevdvlpr/github-clone?color=000000&logo=github&style=flat-square" alt="GitHub Stargazers">
+  </a>
+  
 </div>
 
 ## :keyboard: Resultado
+
+Veja o deploy do site [clicando aqui](https://github-clone-zevdvlpr.vercel.app/).
 
 <img src="https://github.com/zevdvlpr/github-clone/blob/master/public/result.gif" alt="result" />
 
