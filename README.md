@@ -20,8 +20,7 @@
   </a>  
   <a href="https://github.com/zevdvlpr/github-clone/stargazers">
     <img src="https://img.shields.io/github/stars/zevdvlpr/github-clone?color=000000&logo=github&style=flat-square" alt="GitHub Stargazers">
-  </a>
-  
+  </a>  
 </div>
 
 ## :keyboard: Resultado
