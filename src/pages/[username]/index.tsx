@@ -27,7 +27,7 @@ interface Data {
 
 const UserPage: React.FC = () => {
   const router = useRouter();
-  const { username = 'zevdvlpr' } = router.query;
+  const { username = 'izakdvlpr' } = router.query;
 
   const [data, setData] = useState<Data>();
 
